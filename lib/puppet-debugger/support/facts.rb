@@ -12,7 +12,7 @@ module PuppetDebugger
       end
 
       def default_facterdb_filter
-        "operatingsystem=#{facter_os_name} and operatingsystemrelease=#{facter_os_version} and architecture=x86_64 and facterversion=#{facter_version}"
+        "os.name=#{facter_os_name} and os.release.major=#{facter_os_version} and architecture=x86_64 and facterversion=#{facter_version}"
       end
 
       def facter_version
@@ -33,7 +33,7 @@ module PuppetDebugger
       end
 
       def facter_os_version
-        ENV['DEBUGGER_FACTER_OS_VERSION'] || '23'
+        ENV['DEBUGGER_FACTER_OS_VERSION'] || '38'
       end
 
       def set_facts(value)
